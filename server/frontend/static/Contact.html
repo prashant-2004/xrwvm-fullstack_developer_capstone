@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
+    <style>
+        /* Additional CSS for the layout */
+        
+        /* Center the card */
+        .big-card {
+            border: 3px solid rgb(103, 102, 105);
+            margin: 50px auto;
+            width: 80%;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            background-color: #f9f9f9;
+        }
+        
+        /* First section for the image */
+        .big-image {
+            text-align: center;
+            padding: 20px;
+        }
+        .big-image img {
+            width: 100%;
+            max-width: 500px; /* Adjust the size as needed */
+        }
+        
+        /* Second section for the logo and contact details */
+        .contact-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .contact-logo {
+            text-align: center;
+            flex: 1;
+        }
+        .contact-logo img {
+            width: 80px;
+        }
+        
+        /* Vertical line between the logo and contact details */
+        .vertical-line {
+            border-left: 2px solid rgb(97, 64, 128);
+            height: 150px;
+            margin: 0 20px;
+        }
+        
+        /* Contact information section */
+        .contact-info {
+            flex: 3;
+            font-size: 18px;
+            color: rgb(97, 64, 128);
+        }
+        
+        .contact-info h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .contact-info p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:darkturquoise; height: 1in;">
+        <div class="container-fluid">
+          <h2 style="padding-right: 5%;">Dealerships</h2>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" style="font-size: larger;" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" style="font-size: larger;" href="/about">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" style="font-size: larger;" href="/contact">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    <!-- Contact Card -->
+    <!-- <div class="big-card"> -->
+    <div class="card" style="width: 60%; height : 580px;margin: auto; margin-top:5%; border-radius:30px; border-width:20px;border-color:black; item-align : center;">
+        <!-- First Section: Image -->
+        <div class="big-image">
+            <img src="/static/contact_us.jpg" alt="Contact Us Image">
+        </div>
+        
+        <!-- Second Section: Logo and Contact Info -->
+        <div class="contact-row">
+            
+            <!-- Contact Us Logo -->
+            <div class="contact-logo">
+                <img src="/static/contactus.png" width="450px" height="150px" alt="Contact Us Logo">
+                <h3>Contact Us</h3>
+            </div>
+            
+            <!-- Vertical Line -->
+            <div class="vertical-line"></div>
+            
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                <p>123 Business Avenue</p>
+                <p>Cityville, CV 12345</p>
+                <p>Email: contact@business.com</p>
+                <p>Phone: +1 (234) 567-890</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
