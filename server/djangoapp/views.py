@@ -31,7 +31,7 @@ def login_user(request):
     if user is not None:
         # If user is valid, call login method to login current user
         login(request, user)
-        data = {"userName": username, "status": "Authenticated"} 
+        data = {"userName": username, "status": "Authenticated"}
     return JsonResponse(data)
 
 
@@ -51,7 +51,7 @@ def registration(request):
     first_name = data['firstName']
     last_name = data['lastName']
     email = data['email']
-    username_exist = False  
+    username_exist = False
     try:
         # Check if user already exists
         User.objects.get(username=username)
@@ -80,7 +80,7 @@ def registration(request):
 
 # Get all cars
 def get_cars(request):
-    count = CarMake.objects.count()   
+    count = CarMake.objects.count()
     if count == 0:
         initiate()
     car_models = CarModel.objects.select_related('car_make')
@@ -102,7 +102,7 @@ def get_dealerships(request, state="All"):
 def get_dealer_reviews(request, dealer_id):
     if dealer_id:
         endpoint = f"/fetchReviews/dealer/{dealer_id}"
-        reviews = get_request(endpoint)   
+        reviews = get_request(endpoint)
         for review_detail in reviews:
             response = analyze_review_sentiments(review_detail['review'])
             review_detail['sentiment'] = response['sentiment']
