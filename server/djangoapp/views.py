@@ -1,9 +1,7 @@
 # Uncomment the required imports before adding the code
 
-from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.contrib.auth import logout
-from django.contrib import messages
 from django.http import JsonResponse
 from django.contrib.auth import login, authenticate
 import logging
@@ -18,6 +16,7 @@ from .restapis import get_request, analyze_review_sentiments, post_review
 logger = logging.getLogger(__name__)
 
 # Create your views here.
+
 
 # Create a `login_request` view to handle sign in request
 @csrf_exempt
@@ -67,7 +66,13 @@ def registration(request):
     # If it's a new user
     if not username_exist:
         # Create user in auth_user table
-        user = User.objects.create_user(username=username, first_name=first_name, last_name=last_name, password=password, email=email)
+        user = User.objects.create_user(
+            username=username, 
+            first_name=first_name, 
+            last_name=last_name, 
+            password=password,
+            email=email
+        )
         # Login the user
         login(request, user)
         data = {"userName": username, "status": "Authenticated"}
@@ -85,7 +90,9 @@ def get_cars(request):
         initiate()
     
     car_models = CarModel.objects.select_related('car_make')
-    cars = [{"CarModel": car_model.name, "CarMake": car_model.car_make.name} for car_model in car_models]
+    cars = [{"CarModel": car_model.name,
+             "CarMake": car_model.car_make.name}
+            for car_model in car_models]
     
     return JsonResponse({"CarModels": cars})
 
