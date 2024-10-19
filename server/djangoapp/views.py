@@ -84,16 +84,20 @@ def get_cars(request):
     if count == 0:
         initiate()
     car_models = CarModel.objects.select_related('car_make')
-    cars = [{"CarModel": car_model.name,
-             "CarMake": car_model.car_make.name}
-            for car_model in car_models]
+    cars = []
+    for car_model in car_models:
+        cars.append({"CarModel": car_model.name, "CarMake": car_model.car_make.name})
     return JsonResponse({"CarModels": cars})
 
 
 # Update the `get_dealerships` view to render a list of dealerships
 # (all by default, or particular state if passed)
 def get_dealerships(request, state="All"):
-    endpoint = "/fetchDealers" if state == "All" else f"/fetchDealers/{state}"
+    if state == "All":
+        endpoint = "/fetchDealers" 
+    
+    else:
+        endpoint = f"/fetchDealers/{state}"
     dealerships = get_request(endpoint)
     return JsonResponse({"status": 200, "dealers": dealerships})
 
